@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="GRP - Pátio de Apoio de Containers em Paranaguá-PR. Excelência em logística, segurança, agilidade e transparência no Porto de Paranaguá." />
+  <meta name="theme-color" content="#060B14" />
+  <title>GRP | Pátio de Apoio de Containers — Paranaguá, PR</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ===== SCROLL PROGRESS ===== -->
+  <div id="scrollProgress" class="scroll-progress"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar" class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <div class="logo-box">
+          <img src="logo.jpeg" alt="GRP" class="logo-img" />
+        </div>
+        <span class="nav-brand">GRP</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#diferenciais">Diferenciais</a></li>
+        <li><a href="#processo">Processo</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+
+      <a href="#contato" class="btn-nav">
+        <i class="fas fa-phone-alt"></i>
+        Fale Conosco
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== MOBILE MENU ===== -->
+  <div class="mobile-menu" id="mobileMenu">
+    <button class="mobile-close" id="mobileClose" aria-label="Fechar menu">
+      <i class="fas fa-times"></i>
+    </button>
+    <a href="#sobre" class="mobile-link">Sobre</a>
+    <a href="#servicos" class="mobile-link">Serviços</a>
+    <a href="#diferenciais" class="mobile-link">Diferenciais</a>
+    <a href="#processo" class="mobile-link">Processo</a>
+    <a href="#contato" class="mobile-link">Contato</a>
+    <a href="#contato" class="btn btn-primary mobile-cta">
+      <i class="fas fa-phone-alt"></i> Fale Conosco
+    </a>
+  </div>
+
+  <!-- ===== HERO ===== -->
+  <section id="home" class="hero">
+    <canvas id="particleCanvas"></canvas>
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Porto de Paranaguá &nbsp;·&nbsp; Paranaguá, PR
+      </div>
+
+      <div class="hero-logo-wrapper">
+        <div class="hero-logo-glow"></div>
+        <img src="logo.jpeg" alt="GRP" class="hero-logo" />
+      </div>
+
+      <h1 class="hero-title">
+        <span class="gradient-text">Excelência</span> em<br />
+        Logística de Containers
+      </h1>
+
+      <p class="hero-subtitle">
+        Pátio de apoio especializado em containers <strong>DRY e REEFER</strong> —
+        vazio e cheio — em Paranaguá, PR. Operamos com
+        <strong>segurança total</strong>, <strong>máxima agilidade</strong>
+        e <strong>transparência absoluta</strong>.
+      </p>
+
+      <div class="hero-cta">
+        <a href="#servicos" class="btn btn-primary btn-lg">
+          <i class="fas fa-shipping-fast"></i>
+          Nossos Serviços
+        </a>
+        <a href="#contato" class="btn btn-glass btn-lg">
+          <i class="fas fa-phone-alt"></i>
+          Entre em Contato
+        </a>
+      </div>
+
+      <div class="hero-trust">
+        <div class="trust-item">
+          <i class="fas fa-shield-alt"></i>
+          <span>Segurança 24/7</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <i class="fas fa-bolt"></i>
+          <span>Operações Ágeis</span>
+        </div>
+        <div class="trust-divider"></div>
+        <div class="trust-item">
+          <i class="fas fa-certificate"></i>
+          <span>Qualidade Certificada</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Explore</span>
+    </div>
+
+    <div class="hero-fade-bottom"></div>
+  </section>
+
+  <!-- ===== STATS ===== -->
+  <section class="stats-section" id="statsSection">
+    <div class="container">
+      <div class="stats-grid">
+
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="0">
+          <div class="stat-icon-wrap">
+            <i class="fas fa-boxes"></i>
+          </div>
+          <div class="stat-value-wrap">
+            <span class="stat-number" data-count="50000">0</span>
+            <span class="stat-suffix">+</span>
+          </div>
+          <p class="stat-label">Containers<br />Movimentados</p>
+        </div>
+
+        <div class="stat-sep"></div>
+
+        <!-- <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-icon-wrap">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <div class="stat-value-wrap">
+            <span class="stat-number" data-count="10">0</span>
+            <span class="stat-suffix">+</span>
+          </div>
+          <p class="stat-label">Anos de<br />Experiência</p>
+        </div> -->
+
+        <div class="stat-sep"></div>
+
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-icon-wrap">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <div class="stat-value-wrap">
+            <span class="stat-number" data-count="100">0</span>
+            <span class="stat-suffix">+</span>
+          </div>
+          <p class="stat-label">Clientes<br />Atendidos</p>
+        </div>
+
+        <div class="stat-sep"></div>
+
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="stat-icon-wrap">
+            <i class="fas fa-star"></i>
+          </div>
+          <div class="stat-value-wrap">
+            <span class="stat-number" data-count="99">0</span>
+            <span class="stat-suffix">%</span>
+          </div>
+          <p class="stat-label">Índice de<br />Satisfação</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SOBRE ===== -->
+  <section id="sobre" class="section about-section">
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-content" data-aos="fade-right" data-aos-duration="900">
+          <span class="section-label">Quem Somos</span>
+          <h2 class="section-title">
+            O Pátio que <span class="gradient-text">Paranaguá</span> Confia
+          </h2>
+          <p class="body-text">
+            A <strong>GRP</strong> é um pátio de apoio de containers estrategicamente
+            posicionado em Paranaguá-PR, cidade-sede do maior complexo portuário em
+            movimentação de grãos da América do Sul. Somos a ponte entre o porto e
+            o sucesso da sua operação logística.
+          </p>
+          <p class="body-text">
+            Com infraestrutura moderna, equipe especializada e processos rigorosos,
+            entregamos <strong>segurança</strong>, <strong>agilidade</strong> e
+            <strong>transparência</strong> em cada container que passa pelo nosso pátio.
+          </p>
+
+          <div class="check-list">
+            <div class="check-item">
+              <div class="check-icon"><i class="fas fa-check"></i></div>
+              <span>Containers DRY e REEFER — vazios e cheios (20' e 40')</span>
+            </div>
+            <div class="check-item">
+              <div class="check-icon"><i class="fas fa-check"></i></div>
+              <span>Pátio monitorado 24 horas com acesso controlado</span>
+            </div>
+            <div class="check-item">
+              <div class="check-icon"><i class="fas fa-check"></i></div>
+              <span>Equipe especializada em logística portuária</span>
+            </div>
+            <div class="check-item">
+              <div class="check-icon"><i class="fas fa-check"></i></div>
+              <span>Localização privilegiada próxima ao Porto de Paranaguá</span>
+            </div>
+          </div>
+
+          <a href="#contato" class="btn btn-primary" style="margin-top: 36px; display:inline-flex;">
+            <i class="fas fa-arrow-right"></i>
+            Saiba Mais
+          </a>
+        </div>
+
+        <div class="about-visual" data-aos="fade-left" data-aos-duration="900">
+          <div class="visual-grid">
+            <div class="visual-card vc-blue">
+              <i class="fas fa-anchor"></i>
+              <h3>Porto de Paranaguá</h3>
+              <p>Maior porto de grãos da América do Sul</p>
+              <div class="vc-glow"></div>
+            </div>
+            <div class="visual-card vc-gold">
+              <i class="fas fa-thermometer-half"></i>
+              <h3>DRY &amp; REEFER</h3>
+              <p>Containers secos e refrigerados, vazio e cheio</p>
+              <div class="vc-glow"></div>
+            </div>
+            <div class="visual-card vc-dark vc-wide">
+              <div class="vc-stat-row">
+                <div class="vc-mini-stat">
+                  <span class="vc-num">24/7</span>
+                  <span class="vc-desc">Monitoramento</span>
+                </div>
+                <div class="vc-divider"></div>
+                <div class="vc-mini-stat">
+                  <span class="vc-num">100%</span>
+                  <span class="vc-desc">Rastreado</span>
+                </div>
+                <div class="vc-divider"></div>
+                <div class="vc-mini-stat">
+                  <span class="vc-num">ISO</span>
+                  <span class="vc-desc">Qualidade</span>
+                </div>
+              </div>
+              <div class="vc-glow"></div>
+            </div>
+          </div>
+          <div class="about-badge-float">
+            <i class="fas fa-award"></i>
+            <div>
+              <strong>Referência Regional</strong>
+              <span>No Porto de Paranaguá</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVIÇOS ===== -->
+  <section id="servicos" class="section services-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">O Que Fazemos</span>
+        <h2 class="section-title">Nossos Serviços</h2>
+        <p class="section-subtitle">
+          Soluções completas para movimentação, armazenagem e gestão de containers
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="sc-top">
+            <div class="sc-icon"><i class="fas fa-cube"></i></div>
+            <div class="sc-arrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+          <h3>Containers DRY</h3>
+          <p>Armazenagem de containers secos (DRY) vazios e cheios, de 20 e 40 pés. Organização eficiente do pátio com
+            controle preciso de cada unidade e seu posicionamento.</p>
+          <div class="sc-tags">
+            <span>20'</span><span>40'</span><span>Vazio</span><span>Cheio</span>
+          </div>
+        </div>
+
+        <div class="service-card sc-featured" data-aos="fade-up" data-aos-delay="80">
+          <div class="sc-top">
+            <div class="sc-icon"><i class="fas fa-snowflake"></i></div>
+            <div class="sc-arrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+          <h3>Containers REEFER</h3>
+          <p>Pátio estruturado para containers refrigerados (REEFER) vazios e cheios, com infraestrutura de tomadas
+            elétricas e cuidado especializado para cargas sensíveis à temperatura.</p>
+          <div class="sc-tags">
+            <span>Vazio</span><span>Cheio</span><span>Tomadas</span><span>Refrigerado</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="160">
+          <div class="sc-top">
+            <div class="sc-icon"><i class="fas fa-search-plus"></i></div>
+            <div class="sc-arrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+          <h3>Vistoria e Inspeção</h3>
+          <p>Vistoria detalhada com registro fotográfico e laudo técnico na entrada e saída, garantindo integridade e
+            documentação completa de cada container.</p>
+          <div class="sc-tags">
+            <span>Entrada</span><span>Saída</span><span>Fotográfica</span>
+          </div>
+        </div>
+
+        <div class="service-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="sc-top">
+            <div class="sc-icon"><i class="fas fa-route"></i></div>
+            <div class="sc-arrow"><i class="fas fa-arrow-right"></i></div>
+          </div>
+          <h3>Gestão Operacional</h3>
+          <p>Controle do fluxo de containers com planejamento de movimentação, otimização de espaço e relatórios
+            precisos de posicionamento no pátio.</p>
+          <div class="sc-tags">
+            <span>Planning</span><span>Relatórios</span><span>Otimização</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PILARES ===== -->
+  <section id="diferenciais" class="section pillars-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">Nossa Essência</span>
+        <h2 class="section-title">Os 3 Pilares da GRP</h2>
+        <p class="section-subtitle">
+          A filosofia que orienta cada operação e garante a excelência do nosso serviço
+        </p>
+      </div>
+
+      <div class="pillars-grid">
+
+        <div class="pillar-card" data-aos="fade-up" data-aos-delay="0">
+          <div class="pillar-bg-num">01</div>
+          <div class="pillar-icon-wrap">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Segurança</h3>
+          <p>
+            Todas as operações seguem rigorosos protocolos de segurança. Câmeras de
+            alta resolução, acesso controlado e equipe treinada em normas operacionais
+            garantem que sua carga esteja sempre protegida.
+          </p>
+          <ul class="pillar-checklist">
+            <li><i class="fas fa-check-circle"></i> Monitoramento 24/7</li>
+            <li><i class="fas fa-check-circle"></i> Acesso controlado e rastreado</li>
+            <li><i class="fas fa-check-circle"></i> Protocolos certificados</li>
+          </ul>
+        </div>
+
+        <div class="pillar-card pillar-featured" data-aos="fade-up" data-aos-delay="120">
+          <div class="pillar-featured-badge">Principal Diferencial</div>
+          <div class="pillar-bg-num">02</div>
+          <div class="pillar-icon-wrap">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Agilidade</h3>
+          <p>
+            Processos otimizados para garantir a máxima eficiência operacional.
+            Nossa infraestrutura e equipe são preparadas para movimentar containers
+            com rapidez, minimizando o tempo de permanência no pátio.
+          </p>
+          <ul class="pillar-checklist">
+            <li><i class="fas fa-check-circle"></i> Operações ágeis e eficientes</li>
+            <li><i class="fas fa-check-circle"></i> Processos enxutos e otimizados</li>
+            <li><i class="fas fa-check-circle"></i> Atendimento prioritário</li>
+          </ul>
+        </div>
+
+        <div class="pillar-card" data-aos="fade-up" data-aos-delay="240">
+          <div class="pillar-bg-num">03</div>
+          <div class="pillar-icon-wrap">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h3>Transparência</h3>
+          <p>
+            Total clareza em todas as etapas do processo. Relatórios detalhados,
+            comunicação aberta e acesso facilitado às informações da sua carga,
+            construindo uma relação de confiança duradoura.
+          </p>
+          <ul class="pillar-checklist">
+            <li><i class="fas fa-check-circle"></i> Relatórios completos</li>
+            <li><i class="fas fa-check-circle"></i> Comunicação clara e direta</li>
+            <li><i class="fas fa-check-circle"></i> Visibilidade total da operação</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROCESSO ===== -->
+  <section id="processo" class="section process-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">Como Trabalhamos</span>
+        <h2 class="section-title">Do Recebimento à Entrega</h2>
+        <p class="section-subtitle">
+          Um fluxo estruturado e rigoroso para garantir a integridade da sua carga
+        </p>
+      </div>
+
+      <div class="process-steps">
+
+        <div class="ps-item" data-aos="fade-up" data-aos-delay="0">
+          <div class="ps-line"></div>
+          <div class="ps-number">01</div>
+          <div class="ps-content">
+            <div class="ps-icon"><i class="fas fa-clipboard-check"></i></div>
+            <h3>Recebimento & Vistoria</h3>
+            <p>Cada container recebido passa por vistoria completa com registro fotográfico, laudo técnico e
+              documentação da condição inicial.</p>
+          </div>
+        </div>
+
+        <div class="ps-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="ps-line"></div>
+          <div class="ps-number">02</div>
+          <div class="ps-content">
+            <div class="ps-icon"><i class="fas fa-map-marked-alt"></i></div>
+            <h3>Catalogação & Posicionamento</h3>
+            <p>O container é cadastrado no sistema e posicionado estrategicamente no pátio para facilitar futuras
+              movimentações e otimizar o espaço.</p>
+          </div>
+        </div>
+
+        <div class="ps-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="ps-line"></div>
+          <div class="ps-number">03</div>
+          <div class="ps-content">
+            <div class="ps-icon"><i class="fas fa-broadcast-tower"></i></div>
+            <h3>Monitoramento Contínuo</h3>
+            <p>Durante todo o período, o container é monitorado com relatórios periódicos e alertas em tempo real
+              disponíveis ao cliente.</p>
+          </div>
+        </div>
+
+        <div class="ps-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="ps-line ps-line-last"></div>
+          <div class="ps-number">04</div>
+          <div class="ps-content">
+            <div class="ps-icon ps-icon-gold"><i class="fas fa-check-double"></i></div>
+            <h3>Entrega & Documentação</h3>
+            <p>Nova vistoria na saída e entrega de toda documentação necessária, garantindo transparência total na
+              operação final.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== POR QUE GRP ===== -->
+  <section class="section why-section">
+    <div class="why-bg-pattern"></div>
+    <div class="container">
+      <div class="why-inner">
+        <div class="why-left" data-aos="fade-right">
+          <span class="section-label">Por Que Nos Escolher</span>
+          <h2 class="section-title">Paranaguá é a Nossa Casa.<br />Containers são Nossa Paixão.</h2>
+          <p class="body-text">
+            Mais do que um pátio, somos um parceiro estratégico para sua operação
+            portuária. Nossa profunda expertise no Porto de Paranaguá, aliada à
+            tecnologia e a processos rigorosos, nos torna a escolha certa para
+            empresas que não abrem mão da qualidade.
+          </p>
+          <a href="#contato" class="btn btn-primary" style="margin-top:28px; display:inline-flex;">
+            <i class="fas fa-handshake"></i>
+            Seja Nosso Parceiro
+          </a>
+        </div>
+        <div class="why-right" data-aos="fade-left" data-aos-delay="100">
+          <div class="why-features">
+            <div class="wf-item">
+              <div class="wf-icon"><i class="fas fa-map-pin"></i></div>
+              <div class="wf-text">
+                <h4>Localização Estratégica</h4>
+                <p>Pátio próximo ao Porto de Paranaguá, minimizando custos e tempo de deslocamento.</p>
+              </div>
+            </div>
+            <div class="wf-item">
+              <div class="wf-icon"><i class="fas fa-users-cog"></i></div>
+              <div class="wf-text">
+                <h4>Equipe Especializada</h4>
+                <p>Profissionais com expertise em logística portuária e amplo conhecimento operacional.</p>
+              </div>
+            </div>
+            <div class="wf-item">
+              <div class="wf-icon"><i class="fas fa-tachometer-alt"></i></div>
+              <div class="wf-text">
+                <h4>Tecnologia de Ponta</h4>
+                <p>Sistemas de gestão de pátio com controle preciso de entradas, saídas e posicionamento de cada
+                  container.</p>
+              </div>
+            </div>
+            <div class="wf-item">
+              <div class="wf-icon"><i class="fas fa-headset"></i></div>
+              <div class="wf-text">
+                <h4>Atendimento Dedicado</h4>
+                <p>Suporte personalizado e comunicação direta para cada cliente, sem filas ou burocracias.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTATO ===== -->
+  <section id="contato" class="section contact-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <span class="section-label">Entre em Contato</span>
+        <h2 class="section-title">Fale com a GRP</h2>
+        <p class="section-subtitle">
+          Estamos prontos para atender você com agilidade e atenção
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- Info -->
+        <div class="contact-info-col" data-aos="fade-right">
+          <div class="contact-info-card">
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fas fa-phone-alt"></i></div>
+              <div class="ci-content">
+                <span class="ci-label">Telefone</span>
+                <a href="tel:+4112341234" class="ci-value">(41) 1234-1234</a>
+              </div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+              <div class="ci-content">
+                <span class="ci-label">E-mail</span>
+                <a href="mailto:contato@grpcontainers.com.br" class="ci-value">contato@grpcontainers.com.br</a>
+              </div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon ci-icon-map"><i class="fas fa-map-marker-alt"></i></div>
+              <div class="ci-content">
+                <span class="ci-label">Endereço</span>
+                <p class="ci-value">
+                  Av. Sen. Atílio Fontana, 501<br />
+                  Vila São Jorge — Paranaguá, PR<br />
+                  CEP: 83209-708
+                </p>
+              </div>
+            </div>
+            <div class="ci-item">
+              <div class="ci-icon"><i class="fas fa-clock"></i></div>
+              <div class="ci-content">
+                <span class="ci-label">Horário de Atendimento</span>
+                <p class="ci-value">
+                  Segunda a Sexta: 08h às 18h<br />
+                  Sábado: 08h às 12h
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-row">
+            <a href="#" class="social-btn" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="#" class="social-btn" aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-btn" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-btn" aria-label="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="contact-form-col" data-aos="fade-left" data-aos-delay="100">
+          <form class="contact-form" id="contactForm">
+            <h3>Envie uma Mensagem</h3>
+            <p class="form-subtitle">Responderemos em até 24 horas úteis</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">Nome Completo</label>
+                <input type="text" id="fname" placeholder="Seu nome" required />
+              </div>
+              <div class="form-group">
+                <label for="fcompany">Empresa</label>
+                <input type="text" id="fcompany" placeholder="Sua empresa" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="femail">E-mail</label>
+                <input type="email" id="femail" placeholder="email@empresa.com" required />
+              </div>
+              <div class="form-group">
+                <label for="fphone">Telefone</label>
+                <input type="tel" id="fphone" placeholder="(41) 00000-0000" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fservice">Serviço de Interesse</label>
+              <select id="fservice">
+                <option value="">Selecione um serviço</option>
+                <option>Armazenagem de Containers DRY</option>
+                <option>Armazenagem de Containers REEFER</option>
+                <option>Vistoria e Inspeção</option>
+                <option>Gestão Operacional</option>
+                <option>Outros</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="fmessage">Mensagem</label>
+              <textarea id="fmessage" rows="4" placeholder="Como podemos ajudar você?"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+              <i class="fas fa-paper-plane"></i>
+              Enviar Mensagem
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAPA ===== -->
+  <section class="map-section">
+    <div class="map-header" data-aos="fade-up">
+      <div class="container">
+        <span class="section-label">Localização</span>
+        <h2 class="section-title">Onde Estamos</h2>
+        <p class="section-subtitle">
+          Estrategicamente localizado próximo ao Porto de Paranaguá,
+          no coração do maior complexo portuário do Sul do Brasil
+        </p>
+      </div>
+    </div>
+
+    <div class="map-wrap">
+      <div id="map"></div>
+      <div class="map-card">
+        <div class="map-card-icon">
+          <i class="fas fa-map-marker-alt"></i>
+        </div>
+        <div class="map-card-info">
+          <h4>GRP — Pátio de Containers</h4>
+          <p>Av. Sen. Atílio Fontana, 501</p>
+          <p>Vila São Jorge · Paranaguá, PR · 83209-708</p>
+          <a href="https://www.google.com/maps/search/Av.+Sen.+Atílio+Fontana,+501,+Paranaguá,+PR" target="_blank"
+            rel="noopener" class="map-directions">
+            <i class="fas fa-directions"></i> Como Chegar
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <div class="footer-logo-wrap">
+            <div class="footer-logo-box">
+              <img src="logo.jpeg" alt="GRP" class="footer-logo-img" />
+            </div>
+            <span class="footer-brand-name">GRP</span>
+          </div>
+          <p>
+            Pátio de apoio de containers com excelência, segurança e agilidade
+            em Paranaguá-PR — seu parceiro estratégico no maior porto do Sul do Brasil.
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <!-- <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a> -->
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#sobre">Sobre a GRP</a></li>
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#diferenciais">Diferenciais</a></li>
+            <li><a href="#processo">Como Trabalhamos</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Serviços</h4>
+          <ul>
+            <li><a href="#servicos">Containers DRY</a></li>
+            <li><a href="#servicos">Containers REEFER</a></li>
+            <li><a href="#servicos">Vistoria e Inspeção</a></li>
+            <li><a href="#servicos">Gestão Operacional</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col footer-contact-col">
+          <h4>Contato</h4>
+          <div class="footer-contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Av. Sen. Atílio Fontana, 501<br />Vila São Jorge — Paranaguá, PR</span>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-phone-alt"></i>
+            <a href="tel:+554133231234">(41) 3323-1234</a>
+          </div>
+          <div class="footer-contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:contato@grpcontainers.com.br">contato@grpcontainers.com.br</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 GRP Pátio de Containers. Todos os direitos reservados.</p>
+        <p>Paranaguá — PR, Brasil &nbsp;·&nbsp; CNPJ: 00.000.000/0001-00</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+  <script src="main.js"></script>
+</body>
+
+</html>
