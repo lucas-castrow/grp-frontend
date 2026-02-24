@@ -234,8 +234,9 @@ if (typeof AOS !== 'undefined') {
   if (!mapEl || typeof L === 'undefined') return;
 
   // Coordinates: Av. Sen. Atílio Fontana, 501 - Vila São Jorge, Paranaguá-PR
-  const LAT = -25.5196;
-  const LNG = -48.5163;
+  // Usar coordenadas precisas (extraídas do link do Google Maps)
+  const LAT = -25.5487801;
+  const LNG = -48.5569039;
   const ZOOM = 15;
 
   const map = L.map('map', {
@@ -284,7 +285,6 @@ if (typeof AOS !== 'undefined') {
   });
 
   const marker = L.marker([LAT, LNG], { icon: markerIcon }).addTo(map);
-
   marker.bindPopup(`
     <div style="padding:6px 2px; min-width:200px;">
       <div style="font-family:Montserrat,sans-serif; font-size:0.95rem; font-weight:700;
@@ -296,7 +296,7 @@ if (typeof AOS !== 'undefined') {
         Vila São Jorge · Paranaguá, PR<br/>
         CEP: 83209-708
       </div>
-      <a href="https://www.google.com/maps/dir/?api=1&destination=-25.5196,-48.5163"
+      <a href="https://www.google.com/maps/dir/?api=1&destination=-25.5487801,-48.5569039"
          target="_blank" rel="noopener"
          style="display:inline-flex; align-items:center; gap:6px; margin-top:10px;
                 font-size:0.78rem; font-weight:600; color:#60A5FA; text-decoration:none;">
