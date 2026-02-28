@@ -94,7 +94,7 @@ document.addEventListener('click', (e) => {
     speed: 0.35,
     minR: 0.8,
     maxR: 2.2,
-    color: [59, 130, 246],   // blue-light RGB
+    color: [35, 198, 134],   // brand green RGB
   };
 
   let particles = [];
@@ -261,13 +261,13 @@ if (typeof AOS !== 'undefined') {
         position: relative;
         width: 52px;
         height: 52px;
-        filter: drop-shadow(0 6px 18px rgba(37,99,235,0.7));
+        filter: drop-shadow(0 6px 18px rgba(35,198,134,0.7));
       ">
         <svg viewBox="0 0 52 60" xmlns="http://www.w3.org/2000/svg" width="52" height="60">
           <defs>
             <linearGradient id="pinGrad" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#2563EB"/>
-              <stop offset="100%" stop-color="#60A5FA"/>
+              <stop offset="0%" stop-color="#23c686"/>
+              <stop offset="100%" stop-color="#5fe6b5"/>
             </linearGradient>
           </defs>
           <path d="M26 0C15.5 0 7 8.5 7 19c0 14 19 39 19 39s19-25 19-39C45 8.5 36.5 0 26 0z"
@@ -275,7 +275,7 @@ if (typeof AOS !== 'undefined') {
           <circle cx="26" cy="19" r="9" fill="white" opacity="0.92"/>
           <text x="26" y="24" text-anchor="middle"
                 font-family="Montserrat,sans-serif" font-weight="800"
-                font-size="9.5" fill="#2563EB">GRP</text>
+                font-size="9.5" fill="#23c686">GRP</text>
         </svg>
       </div>
     `,
@@ -298,8 +298,8 @@ if (typeof AOS !== 'undefined') {
       </div>
       <a href="https://www.google.com/maps/dir/?api=1&destination=-25.5487801,-48.5569039"
          target="_blank" rel="noopener"
-         style="display:inline-flex; align-items:center; gap:6px; margin-top:10px;
-                font-size:0.78rem; font-weight:600; color:#60A5FA; text-decoration:none;">
+          style="display:inline-flex; align-items:center; gap:6px; margin-top:10px;
+            font-size:0.78rem; font-weight:600; color:#5fe6b5; text-decoration:none;">
         ➜ Como Chegar
       </a>
     </div>
@@ -383,6 +383,30 @@ if (badge) {
   badge.style.transition = 'opacity 0.3s';
   setTimeout(() => { badge.style.opacity = '1'; }, 300);
 }
+
+/* ─── IMAGE ENHANCEMENTS: lazy blur-up for visual photos ───────── */
+(function initImageEnhancements() {
+  const imgs = qsa('.visual-photo__img');
+  if (!imgs.length) return;
+
+  imgs.forEach(img => {
+    const parent = img.closest('.vc-photo');
+    // If already cached and complete, mark loaded
+    if (img.complete && img.naturalWidth > 1) {
+      parent && parent.classList.add('visual-photo--loaded');
+      return;
+    }
+
+    img.addEventListener('load', () => {
+      if (parent) parent.classList.add('visual-photo--loaded');
+    }, { once: true });
+
+    // Safety: if image fails to load, remove heavy filters so UI remains clean
+    img.addEventListener('error', () => {
+      if (parent) parent.classList.add('visual-photo--loaded');
+    }, { once: true });
+  });
+})();
 
 /* ─── 14. INTERSECTION-BASED COLOR TRANSITION for nav brand ─── */
 (function initHeroWatch() {
