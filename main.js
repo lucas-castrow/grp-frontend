@@ -418,3 +418,69 @@ if (badge) {
   }, { threshold: 0 });
   obs.observe(hero);
 })();
+
+/* ─── 15. GALLERY MODAL FUNCTIONALITY ────────────────────────── */
+(function initGalleryModal() {
+  const modal = qs('#galleryModal');
+  const modalImage = qs('#modalImage');
+  const modalClose = qs('#modalClose');
+  const modalPrev = qs('#modalPrev');
+  const modalNext = qs('#modalNext');
+  const galleryZooms = qsa('.gallery-zoom');
+
+  if (!modal || !galleryZooms.length) return;
+
+  let currentImageIndex = 0;
+  const images = [];
+
+  // Collect all gallery images
+  galleryZooms.forEach((btn, idx) => {
+    const imgSrc = btn.getAttribute('data-image');
+    images.push(imgSrc);
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      currentImageIndex = idx;
+      openModal(imgSrc);
+    });
+  });
+
+  function openModal(imgSrc) {
+    modalImage.src = imgSrc;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function showPrevImage() {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    modalImage.src = images[currentImageIndex];
+  }
+
+  function showNextImage() {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    modalImage.src = images[currentImageIndex];
+  }
+
+  modalClose.addEventListener('click', closeModal);
+  modalPrev.addEventListener('click', showPrevImage);
+  modalNext.addEventListener('click', showNextImage);
+
+  // Close on backdrop click
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!modal.classList.contains('active')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'ArrowLeft') showPrevImage();
+    if (e.key === 'ArrowRight') showNextImage();
+  });
+})();
+
